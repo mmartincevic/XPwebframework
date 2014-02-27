@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# An example hook script to check the commit log message.
+# Called by "git commit" with one argument, the name of the file
+# that has the commit message.  The hook should exit with non-zero
+# status after issuing an appropriate message if it wants to stop the
+# commit.  The hook is allowed to edit the commit message file.
+#
+# To enable this hook, rename this file to "commit-msg".
+
+# Uncomment the below to add a Signed-off-by line to the message.
+# Doing this in a hook is a bad idea in general, but the prepare-commit-msg
+# hook is more suited to it.
+
+txtbld=$(tput bold)     # Bold
+txtred=$(tput setaf 1)     # red
+txtrst=$(tput sgr0)     # Reset
+
+if [[ $(grep -cE '(tag:|TAG|DOC|FIX|OPT|NEW|SEC|CHANGE|PERF|REL|--) ' $1) -eq 0 ]] ; then
+    echo "$txtred$txtbld
+############################################################################
+>>>>>>              MESSAGE ERROR:    Commit aborted                 <<<<<<<
+############################################################################
+$txtrst
+You should identify you message type using one of the following tags:
+
+DOC (to identify a commit for docs
+FIX (to identify a commit for a bug fix
+OPT
+NEW (to identify a commit adding new files or functionality
+SEC
+CHANGE
+PERF
+TAG";
+    echo "Your message is saved in '$1'"
+    exit 1;
+fi
+exit 0
