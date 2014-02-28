@@ -9,7 +9,6 @@
  * @package     XPF
  *
 */
-
 require '../vendor/autoload.php';
 require '../config/bootstrap.php';
 
