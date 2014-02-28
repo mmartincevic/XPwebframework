@@ -11,7 +11,7 @@
 */
 
 require '../vendor/autoload.php';
-require '../config/config.php';
+require '../config/bootstrap.php';
 
 // Define routes
 $app->get('/', function () use ($app) {
