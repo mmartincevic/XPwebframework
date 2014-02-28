@@ -5,7 +5,8 @@
         "slim/views": "*",
         "monolog/monolog": "*",
         "php-activerecord/php-activerecord": "*",
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "phpdocumentor/phpdocumentor": "2.*"
     }
 }
 
