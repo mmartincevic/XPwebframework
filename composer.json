@@ -4,7 +4,8 @@
         "twig/twig": "*",
         "slim/views": "*",
         "monolog/monolog": "*",
-        "php-activerecord/php-activerecord": "*"
+        "php-activerecord/php-activerecord": "*",
+        "phpunit/phpunit": "*"
     }
 }
 
