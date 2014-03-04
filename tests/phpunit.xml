@@ -1,0 +1,9 @@
+<phpunit bootstrap="./bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="Application Modules">
+            <directory>./*</directory>
+            <exclude>./bootstrap.php</exclude>
+        </testsuite>
+    </testsuites>
+</phpunit>
+
