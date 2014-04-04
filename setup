@@ -11,6 +11,8 @@
 
 LOG_DIR='log'
 TEMPLATES_DIR='templates'
+GIT_HOOKS=(pre-commit commit-msg)
+COMPOSER='./composer.phar'
 
 fix_dir() {
     if [ -z "$1" ]
@@ -30,5 +32,16 @@ fix_dir() {
 }
 
 setup_github() {
-
+    if [[ -d ".git" ]] ; then
+        for hook in "${GIT_HOOKS[@]}"; do
+            echo "${hook}"
+            cp "bin/"${hook} ".git/hooks"
+        done
+    fi
 }
+
+composer() {
+    $COMPOSER update
+}
+
+
